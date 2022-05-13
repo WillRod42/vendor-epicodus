@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BakeryOrderManager.Models;
+using System.Collections.Generic;
+using System;
 
 namespace BakeryOrderManager.Controllers
 {
@@ -24,7 +26,7 @@ namespace BakeryOrderManager.Controllers
 		}
 
 		[HttpPost("/vendors")]
-		public ActionResult New(string name, string desc)
+		public ActionResult Create(string name, string desc)
 		{
 			new Vendor(name, desc);
 			return RedirectToAction("Index");
