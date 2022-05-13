@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Orders</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	</head>
+	<body>
+		<h1 class="display-1 text-center">New Order</h1>
+		<form action="/vendors/@Model.Name" method="post">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" class="form-control" required>
+      <label for="desc">Description:</label>
+      <input type="text" name="desc" id="desc" class="form-control">
+      <label for="price">Price:</label>
+      <input type="number" name="price" id="price" class="form-control" min="0.01" required>
+      <button type="submit" class="btn btn-success">Add Order</button>
+    </form>
+    <a href="/vendors/@Model.Name"><button class="btn btn-primary">Vendor Page</button></a>
+	</body>
+</html>
