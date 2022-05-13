@@ -5,7 +5,7 @@ namespace BakeryOrderManager.Controllers
 {
 	public class VendorController : Controller
 	{
-		[HttpGet("<insert route here>")]
+		[HttpGet("/vendor")]
 		public ActionResult Index()
 		{
 			return View();
