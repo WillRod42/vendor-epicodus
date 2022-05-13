@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Orders</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	</head>
+	<body>
+		<h1 class="display-1 text-center">Order Details</h1>
+    @using System.Collections.Generic;
+    <h3>@Model.Key.Name</h3>
+    <ul>
+      <li>$@Model.Key.Price</li>
+      <li>@Model.Key.Date.ToShortDateString()</li>
+      <li>@Model.Key.Description</li>
+    </ul>
+		<a href="/vendors/@Model.Value"><button class="btn btn-primary">Vendor Page</button></a>
+	</body>
+</html>

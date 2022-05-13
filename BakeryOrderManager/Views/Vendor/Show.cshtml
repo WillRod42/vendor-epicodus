@@ -6,16 +6,15 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	</head>
 	<body>
-		<h1 class="display-1 text-center">Vendors</h1>
+		<h1 class="display-1 text-center">@Model.Name</h1>
     <p>@Model.Description</p>
     @using BakeryOrderManager.Models
     @foreach (Order order in @Model.Orders)
     {
-      <h3>@order.Name</h3>
+      <h3><a href="/vendors/@Model.Name/orders/@order.Name">@order.Name</a></h3>
       <ul>
         <li>$@order.Price</li>
         <li>@order.Date.ToShortDateString()</li>
-        <li>@order.Description</li>
       </ul>
     }
 		<a href="/vendors/@Model.Name/orders/new"><button class="btn btn-success">Add Order</button></a>

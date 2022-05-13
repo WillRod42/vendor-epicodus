@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using BakeryOrderManager.Models;
-using System.Collections.Generic;
-using System;
 
 namespace BakeryOrderManager.Controllers
 {

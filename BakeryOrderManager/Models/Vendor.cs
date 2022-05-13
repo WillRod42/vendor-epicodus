@@ -24,6 +24,11 @@ namespace BakeryOrderManager.Models
 			Orders.Add(order);
 		}
 
+		public Order GetOrder(string name)
+		{
+			return Orders.Find(order => order.Name == name);
+		}
+
 		public static List<Vendor> GetVendors()
 		{
 			return _vendors;
