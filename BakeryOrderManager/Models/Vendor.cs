@@ -5,28 +5,39 @@ namespace BakeryOrderManager.Models
 {
 	public class Vendor
 	{
-		public List<Order> Orders { get; set; }
 		public string Description { get; }
 		public string Name { get; }
 
+		private List<Order> _orders;
 		private static List<Vendor> _vendors = new List<Vendor>();
 
 		public Vendor(string name, string description)
 		{
-			Orders = new List<Order>();
+			_orders = new List<Order>();
 			Name = name;
 			Description = description;
 			_vendors.Add(this);
 		}
 
-		public Vendor(string name, Order order, string description) : this(name, description)
+		public Order GetOrder(string id)
 		{
-			Orders.Add(order);
+			return _orders.Find(order => order.Id == id);
 		}
 
-		public Order GetOrder(string name)
+		public List<Order> GetOrders()
 		{
-			return Orders.Find(order => order.Name == name);
+			return _orders;
+		}
+
+		public void AddOrder(string name, string description, float price)
+		{
+			_orders.Add(new Order(name, description, price, $"{name}{_orders.Count}"));
+		}
+
+		public void RemoveOrder(string name)
+		{
+			Order order = GetOrder(name);
+			_orders.Remove(order);
 		}
 
 		public static List<Vendor> GetVendors()
@@ -37,6 +48,12 @@ namespace BakeryOrderManager.Models
 		public static Vendor FindVendor(string name)
 		{
 			return _vendors.Find(vendor => vendor.Name == name);
+		}
+
+		public static void RemoveVendor(string name)
+		{
+			Vendor vendor = FindVendor(name);
+			_vendors.Remove(vendor);
 		}
 
 		public static void ClearAll()

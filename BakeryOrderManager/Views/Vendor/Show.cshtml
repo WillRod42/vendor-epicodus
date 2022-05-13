@@ -9,7 +9,7 @@
 		<h1 class="display-1 text-center">@Model.Name</h1>
     <p>@Model.Description</p>
     @using BakeryOrderManager.Models
-    @foreach (Order order in @Model.Orders)
+    @foreach (Order order in @Model.GetOrders())
     {
       <h3><a href="/vendors/@Model.Name/orders/@order.Name">@order.Name</a></h3>
       <ul>

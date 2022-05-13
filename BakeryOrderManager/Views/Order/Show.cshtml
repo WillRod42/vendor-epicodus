@@ -14,6 +14,9 @@
       <li>@Model.Key.Date.ToShortDateString()</li>
       <li>@Model.Key.Description</li>
     </ul>
+    <form action="/vendors/@Model.Value/orders/@Model.Key.Id" method="post">
+      <button type="submit" class="btn btn-danger">Delete Order</button>
+    </form>
 		<a href="/vendors/@Model.Value"><button class="btn btn-primary">Vendor Page</button></a>
 	</body>
 </html>

@@ -12,20 +12,27 @@ namespace BakeryOrderManager.Controllers
       return View(Vendor.FindVendor(vendorName));
     }
 
-    [HttpGet("/vendors/{vendorName}/orders/{orderName}")]
-    public ActionResult Show(string vendorName, string orderName)
+    [HttpGet("/vendors/{vendorName}/orders/{orderId}")]
+    public ActionResult Show(string vendorName, string orderId)
     {
       Vendor vendor = Vendor.FindVendor(vendorName);
-      Order order = vendor.GetOrder(orderName);
+      Order order = vendor.GetOrder(orderId);
       return View(new KeyValuePair<Order, string>(order, vendorName));
     }
 
     [HttpPost("/vendors/{vendorName}")]
 		public ActionResult Create(string vendorName, string name, string desc, float price)
 		{
-			Order newOrder = new Order(name, desc, price);
-      Vendor.FindVendor(vendorName).Orders.Add(newOrder);
+      Vendor.FindVendor(vendorName).AddOrder(name, desc, price);
 			return RedirectToAction("Show", "Vendor", new {vendorName = vendorName});
 		}
+
+    [HttpPost("/vendors/{vendorName}/orders/{orderId}")]
+    public ActionResult Destroy(string vendorName, string orderId)
+    {
+      Vendor vendor = Vendor.FindVendor(vendorName);
+      vendor.RemoveOrder(orderId);
+      return RedirectToAction("Show", "Vendor", new {vendorName = vendorName});
+    }
   }
 }
