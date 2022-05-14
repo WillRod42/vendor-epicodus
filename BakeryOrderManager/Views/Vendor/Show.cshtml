@@ -11,7 +11,7 @@
     @using BakeryOrderManager.Models
     @foreach (Order order in @Model.GetOrders())
     {
-      <h3><a href="/vendors/@Model.Name/orders/@order.Name">@order.Name</a></h3>
+      <h3><a href="/vendors/@Model.Name/orders/@order.Id">@order.Name</a></h3>
       <ul>
         <li>$@order.Price</li>
         <li>@order.Date.ToShortDateString()</li>
